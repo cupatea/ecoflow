@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_07_170531) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_07_183751) do
   create_table "devices", force: :cascade do |t|
     t.string "name"
     t.string "sn"
@@ -24,4 +24,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_07_170531) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "stats", force: :cascade do |t|
+    t.integer "device_id", null: false
+    t.json "data"
+    t.boolean "error", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["device_id"], name: "index_stats_on_device_id"
+  end
+
+  add_foreign_key "stats", "devices"
 end
