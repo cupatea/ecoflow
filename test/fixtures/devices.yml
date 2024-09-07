@@ -1,0 +1,8 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+delta_pro:
+  name: 'Delta Pro'
+  sn: 'DECE***'
+delta_2:
+  name: 'Delta 2'
+  sn: 'R331***'
