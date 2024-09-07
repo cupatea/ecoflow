@@ -2,13 +2,11 @@ class RestClient
   HOST           = "https://api-e.ecoflow.com"
   ALL_QUOTA_PATH = "/iot-open/sign/device/quota/all"
 
-  attr_reader :profile
+  attr_reader :access_key, :secret_key
 
-  delegate :access_key, :secret_key, to: :profile
-
-
-  def initialize(profile)
-    @profile = profile
+  def initialize
+    @access_key = Rails.application.credentials.ecoflow[:access_key]
+    @secret_key = Rails.application.credentials.ecoflow[:secret_key]
   end
 
   def all_quota(device)
