@@ -1,0 +1,7 @@
+<% @data.each do |device_name, stats| %>
+  <h1><%= device_name %></h1>
+  <% @stats.each do |key, label| %>
+    <h2><%= label %></h2>
+    <%= line_chart stats[key], points: false %>
+  <% end %>
+<% end %>
