@@ -15,7 +15,9 @@ class Device < ApplicationRecord
   end
 
   def error_keys
-    %w[pd.errCode bms_slave.errCode bms_bmsStatus.errCode bms_slave.allErrCode]
+    %w[pd.errCode bms_slave.errCode bms_bmsStatus.errCode bms_slave.allErrCode inv.errCode bmsMaster.errCode
+       pd.iconBmsErrState pd.iconBmsErrMode pd.errCode
+       ems.bmsWarningState pd.iconHiTempMode pd.iconHiTempState pd.iconOverloadState pd.iconOverloadMode]
   end
 
   def has_errors?
