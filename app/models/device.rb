@@ -21,6 +21,6 @@ class Device < ApplicationRecord
   end
 
   def has_errors?
-    all_quota.values_at(*error_keys).any? { _1 != 0 }
+    all_quota.values_at(*error_keys).any? { !_1.in? [ 0, nil ] }
   end
 end
