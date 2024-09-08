@@ -17,7 +17,7 @@ class DashboardController < ApplicationController
 
 
     @data = Device.all.map do |device|
-      stats = device.stats.pluck(:created_at, :data)
+      stats = device.stats.where(created_at: 6.hours.ago..).pluck(:created_at, :data)
       [
         device.name,
         @stats.map { |k, _v| [ k, prepare(stats, k) ] }.to_h
